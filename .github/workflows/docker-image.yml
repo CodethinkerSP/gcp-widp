@@ -25,8 +25,6 @@ jobs:
         project_id: 'learned-raceway-418714'
         workload_identity_provider: 'projects/904969968668/locations/global/workloadIdentityPools/github-oidc-pool-v2/providers/github-oidc-provider'
         service_account: widp-314@learned-raceway-418714.iam.gserviceaccount.com
-    - id: 'gcloud'
-      name: 'gcloud'
+    - name : bash script
       run: |-
-        gcloud auth login --no-browser --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
-        gcloud services list
+          echo "Praise the Lord"
