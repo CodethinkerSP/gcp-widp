@@ -28,8 +28,9 @@ jobs:
     - id: 'gcloud'
       name: 'gcloud command'
       run: |-
-        gcloud init --no-browser
-        gcloud auth activate-service-account widp-demo@learned-raceway-418714.iam.gserviceaccount.com --key-file="${{ steps.auth.outputs.credentials_file_path }}" --project="learned-raceway-418714"
+        
+        
         echo "Praise the Lord"
-        gcloud auth login --no-launch-browser --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
-        gcloud services list
+        echo "${{ steps.auth.outputs.credentials_file_path }}"
+        echo "${{ steps.auth.outputs.access_token }}"
+        
