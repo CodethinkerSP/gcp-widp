@@ -12,12 +12,12 @@ jobs:
       contents: 'read'
       id-token: 'write'
  
-    runs-on: self-hosted
-
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag simplepyt:$(date +%s)
+      run: |-
+        docker build . --file Dockerfile --tag simplepyt:$(date +%s)
     - uses: 'google-github-actions/auth@v2'
       name: 'auth'
       with:
