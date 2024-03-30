@@ -21,7 +21,7 @@ jobs:
     - uses: 'google-github-actions/auth@v2'
       name: 'auth'
       with:
-        token_format: id_token
+        token_format: access_token
         create_credentials_file: 'true'
         project_id: 'learned-raceway-418714'
         workload_identity_provider: 'projects/904969968668/locations/global/workloadIdentityPools/github-oidc-pool/providers/github-oidc-provider'
@@ -33,5 +33,5 @@ jobs:
        
         echo "Praise the Lord"
         echo "${{ steps.auth.outputs.credentials_file_path }}"
-        echo "${{ steps.auth.outputs.id_token }}"
+        echo "${{ steps.auth.outputs.access_token }}"
         
