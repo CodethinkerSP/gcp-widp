@@ -27,5 +27,6 @@ jobs:
     - id: 'gcloud'
       name: 'gcloud command'
       run: |-
-        gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
+        gcloud init --no-browser
+        gcloud auth login --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
         gcloud services list
