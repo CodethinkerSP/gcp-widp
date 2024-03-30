@@ -27,4 +27,5 @@ jobs:
         service_account: widp-314@learned-raceway-418714.iam.gserviceaccount.com
     - name : bash script
       run: |-
-          echo ${{ steps.auth.outputs.credentials_file_path }}
+          cat {{ steps.auth.outputs.credentials_file_path }}
+          shell: bash
