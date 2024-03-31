@@ -11,7 +11,6 @@ jobs:
     permissions:
       contents: 'read'
       id-token: 'write'
- 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -20,7 +19,7 @@ jobs:
         docker build . --file Dockerfile --tag simplepyt:$(date +%s)
     
     - uses: google-github-actions/auth@v2
-      id: 'auth'
+    - name: 'auth'
       with:
         token_format: access_token
         project_id: 'learned-raceway-418714'
@@ -33,12 +32,6 @@ jobs:
       id: cloudsetup2
       with:
         version: '>= 363.0.0'
-    - name : Login to Artifactory Registry
-    - uses: docker/login-action@v1
-      id: dockerlogin
-      with:
-       registry: asia-south1-docker.pkg.dev
-       username: oauth2accesstoken
-       password:  ${{ steps.auth.outputs.access_token }}
+
 
           
