@@ -18,6 +18,7 @@ jobs:
     - name: Build the Docker image
       run: |-
         docker build . --file Dockerfile --tag simplepyt:$(date +%s)
+    
     - uses: google-github-actions/auth@v2
       id: 'auth'
       with:
@@ -28,11 +29,11 @@ jobs:
         access_token_lifetime: 300s
         
     - name: 'Set up Cloud SDK'
-      uses: 'google-github-actions/setup-gcloud@v2'
+    - uses: 'google-github-actions/setup-gcloud@v2'
       with:
         version: '>= 363.0.0'
     - name : Login to Artifactory Registry
-      uses: docker/login-action@v1
+    - uses: docker/login-action@v1
       with:
        registry: asia-south1-docker.pkg.dev
        username: oauth2accesstoken
