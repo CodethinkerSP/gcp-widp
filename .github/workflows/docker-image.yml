@@ -18,8 +18,8 @@ jobs:
     - name: Build the Docker image
       run: |-
         docker build . --file Dockerfile --tag simplepyt:$(date +%s)
-    - id: google-github-actions/auth@v2
-      name: 'auth'
+    - uses: google-github-actions/auth@v2
+      id: 'auth'
       with:
         token_format: access_token
         project_id: 'learned-raceway-418714'
