@@ -19,7 +19,7 @@ jobs:
       run: |-
         docker build . --file Dockerfile --tag simplepyt:$(date +%s)
     - uses: 'google-github-actions/auth@v2'
-      id : 'auth'
+    - name : 'auth'
       with:
         project_id: 'learned-raceway-418714'
         workload_identity_provider: 'projects/904969968668/locations/global/workloadIdentityPools/github-oidc-pool-v2/providers/github-oidc-provider'
