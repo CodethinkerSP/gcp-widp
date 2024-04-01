@@ -25,17 +25,10 @@ jobs:
         project_id: 'learned-raceway-418714'
         workload_identity_provider: 'projects/904969968668/locations/global/workloadIdentityPools/github-oidc-pool-v2/providers/github-oidc-provider'
         service_account: 'widp-314@learned-raceway-418714.iam.gserviceaccount.com'
-        token_format: access_token
         
       
     - id : readFile
       name: "Read JSON"
       run: |-
           cat "${{ steps.auth.outputs.credentials_file_path }}"
-    - id : 'testAuz' 
-      name: "test"
-      uses: docker/login-action@v3
-      with:
-        registry: asia-south1-docker.pkg.dev
-        username: _json_key
-        password: "${{ steps.auth.outputs.credentials_file_path }}"
+
