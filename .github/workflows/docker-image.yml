@@ -22,6 +22,7 @@ jobs:
       uses: 'google-github-actions/auth@v2'
       with:
         
+        token_format: action_token
         project_id: 'learned-raceway-418714'
         workload_identity_provider: 'projects/904969968668/locations/global/workloadIdentityPools/github-oidc-pool-v2/providers/github-oidc-provider'
         service_account: 'widp-314@learned-raceway-418714.iam.gserviceaccount.com'
@@ -35,10 +36,12 @@ jobs:
       uses: 'google-github-actions/setup-gcloud@v2'
       with:
         version: '>= 363.0.0'
-    - name : Running gcloud command
-      run: |- 
-           gcloud auth configure-docker https://asia-south1-docker.pkg.dev/
-           cat "${{ steps.auth.outputs.credentials_file_path }}" | docker login -u _json_key_base64 --password-stdin https://asia-south1-docker.pkg.dev
+
+    - name: Login to GAR
+      uses: docker/login-action@v1
+      with:
+       username: oauth2accesstoken
+       password: ${{ steps.auth.outputs.access_token }}
 
       
  
