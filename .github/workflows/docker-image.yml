@@ -40,8 +40,8 @@ jobs:
     - id: 'docker_login'
       name : "Docker Login"
       run: |- 
-           gcloud components update
+           gcloud auth login
            gcloud auth configure-docker https://asia-south1-docker.pkg.dev/
            gcloud artifacts locations list
-           cat "${{ steps.auth.outputs.credentials_file_path }}" | docker login -u _json_key_base64 --password-stdin https://asia-south1-docker.pkg.dev/v2
+           cat "${{ steps.auth.outputs.credentials_file_path }}" | docker login -u _json_key_base64 --password-stdin https://asia-south1-docker.pkg.dev
  
