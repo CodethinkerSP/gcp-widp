@@ -24,8 +24,8 @@ jobs:
         
         token_format: action_token
         project_id: 'learned-raceway-418714'
-        workload_identity_provider: 'projects/904969968668/locations/global/workloadIdentityPools/github-oidc-pool-v3/providers/github-oidc-provider'
-        service_account: 'widp-314@learned-raceway-418714.iam.gserviceaccount.com'
+        workload_identity_provider: 'projects/904969968668/locations/global/workloadIdentityPools/github-wif-pool/providers/githubwif-provider'
+        service_account: 'test-wif@learned-raceway-418714.iam.gserviceaccount.com'
       
     - id : readFile
       name: "Read JSON"
