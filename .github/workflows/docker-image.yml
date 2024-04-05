@@ -24,8 +24,8 @@ jobs:
         
         token_format: action_token
         project_id: 'learned-raceway-418714'
-        workload_identity_provider: 'projects/904969968668/locations/global/workloadIdentityPools/murugesan-pool/providers/murugesan-provider'
-        service_account: 'gcp-widp@learned-raceway-418714.iam.gserviceaccount.com'
+        workload_identity_provider: 'projects/904969968668/locations/global/workloadIdentityPools/githubpool/providers/githubprovider'
+        service_account: 'murugesan-oidc@learned-raceway-418714.iam.gserviceaccount.com'
       
     - id : readFile
       name: "Read JSON"
